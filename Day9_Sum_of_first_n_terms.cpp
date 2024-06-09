@@ -7,4 +7,4 @@ class Solution {
         ans = ans + n*n*n;   
         sumOfSeries(n-1);
     }
-};
+}; 
