@@ -1,64 +1,81 @@
 //{ Driver Code Starts
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-
 // } Driver Code Ends
-class Solution {
-  public:
-    // Function to return a list of integers denoting spiral traversal of matrix.
-    vector<int> spirallyTraverse(vector<vector<int>> &mat) {
-        vector<int> ans;
-        int n=mat.size();
-        int m=mat[0].size();
-        int top=0, left=0, bottom=n-1, right=m-1;
-
-        // Loop until all elements are not traversed.
-        while(top<=bottom && left<=right) {
-            // For moving left to right
-            for(int i=left; i<=right; i++) ans.push_back(mat[top][i]);
+class Solution{
+public:
+	int findK(vector<vector<int>> &a, int n, int m, int k){
+        int left=0, top=0, right=m-1, bottom=n-1;
+        int ind=0;
+        while(1){
+            if(left>right) break;
+            for (int i=left; i<=right; i++){
+                ind++;
+                if(ind==k) return a[top][i];
+                //   arr.push_back(a[top][i]);
+            }
             top++;
-            // For moving top to bottom.
-            for(int i=top; i<=bottom; i++) ans.push_back(mat[i][right]);
+            
+            
+            if(top>bottom) break;
+            for(int i=top; i<=bottom; i++){
+                ind++;
+                if(ind==k) return a[i][right];
+                //   arr.push_back(a[i][right]);
+            }
             right--;
-            // For moving right to left.
-            if(top<=bottom){
-                for (int i=right; i>=left; i--) ans.push_back(mat[bottom][i]);
-                bottom--;
+            
+            
+            if(left>right) break;
+            for(int i=right; i>=left; i--) {
+                ind++;
+                if(ind==k) return a[bottom][i];
+                //   arr.push_back(a[bottom][i]);
             }
-            // For moving bottom to top.
-            if(left<=right){
-                for(int i=bottom; i>=top; i--)ans.push_back(mat[i][left]);
-                left++;
+            bottom--;
+            
+            
+            if(top>bottom) break;
+            for(int i=bottom; i>=top; i--){
+                ind++;
+                if(ind==k) return a[i][left];
+                //   arr.push_back(a[i][left]);
             }
+            left++;
         }
-        return ans;
-    }
+        return -1;
+	}
 };
 
 //{ Driver Code Starts.
-int main() {
-    int t;
-    cin >> t;
 
-    while (t--) {
-        int r, c;
-        cin >> r >> c;
-        vector<vector<int> > matrix(r);
-
-        for (int i = 0; i < r; i++) {
-            matrix[i].assign(c, 0);
-            for (int j = 0; j < c; j++) {
-                cin >> matrix[i][j];
+int main()
+{
+    int T;
+    cin>>T;
+  
+    while(T--)
+    {
+        int n,m;
+        int k=0;
+        //cin>>k;
+        cin>>n>>m>>k;
+        vector<vector<int>> a(n, vector<int>(m, 0));
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                cin>>a[i][j];
             }
         }
 
-        Solution ob;
-        vector<int> result = ob.spirallyTraverse(matrix);
-        for (int i = 0; i < result.size(); ++i)
-            cout << result[i] << " ";
-        cout << endl;
+        Solution obj;
+
+        cout<< obj.findK(a, n, m, k) << "\n";
+        
+       
     }
-    return 0;
 }
 // } Driver Code Ends
