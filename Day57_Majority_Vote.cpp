@@ -36,6 +36,7 @@ class Solution {
         int mini=int(n/3)+1;
         if(cnt1>=mini) ls.push_back(el1);
         if(cnt2>=mini) ls.push_back(el2);
+        
 
         // if it is told to sort the answer array:
         // sort(ls.begin(), ls.end()); //TC --> O(2*log2) ~ O(1);
