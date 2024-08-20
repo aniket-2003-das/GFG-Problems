@@ -10,14 +10,12 @@ class Solution {
     int firstNonRepeating(vector<int>& arr) {
         // Complete the function
         unordered_map<int,int> ans;
+        for(int i=0; i<arr.size(); i++) ans[arr[i]]++;
         
-        for(int i=0;i<arr.size();i++) ans[arr[i]]++;
-    
-        for(int i=0;i<arr.size();i++){
-            int key = arr[i];
-            auto temp = ans.find(key);
-            if(temp->second == 1)
-                return key;
+        for(int i=0; i<arr.size(); i++){
+            // auto it=ans.find(arr[i]);
+            // if(it->second==1) return arr[i];
+            if(ans[arr[i]]==1) return arr[i];
         }
         return 0;
     }
