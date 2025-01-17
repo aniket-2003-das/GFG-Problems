@@ -14,6 +14,7 @@ struct Node {
     }
 };
 
+
 // Function to Build Tree
 Node* buildTree(string str) {
     // Corner Case
