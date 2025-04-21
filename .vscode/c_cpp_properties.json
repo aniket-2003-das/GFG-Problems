@@ -3,18 +3,14 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\MinGW\\include"
+                "${workspaceFolder}/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "windowsSdkVersion": "10.0.22000.0",
-            "compilerPath": "C:/MinGW/bin/g++.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64"
+            "compilerPath": "C:\\Users\\gcc-14.2.0\\bin\\gcc.exe"
         }
     ],
     "version": 4
